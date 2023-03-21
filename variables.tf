@@ -14,10 +14,10 @@ variable "instance_type" {
         default = "t2.micro"
 }
 
-variable "subnet_id" {
-        description = "The VPC subnet the instance(s) will be created in"
-        default = "subnet-a5a72ce8"
-}
+#variable "subnet_id" {
+#        description = "The VPC subnet the instance(s) will be created in"
+#        default = "subnet-a5a72ce8"
+#}
 
 variable "ami_id" {
         description = "The AMI to use"
