@@ -29,6 +29,6 @@ variable "number_of_instances" {
         default = 1
 }
 
-# variable "ami_key_pair_name" {
-#        default = "ansible"
-# }
+ variable "ami_key_pair_name" {
+        default = "ansible"
+}
