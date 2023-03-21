@@ -1,9 +1,9 @@
-variable "access_key" {
-        description = "Access key to AWS console"
-}
-variable "secret_key" {
-        description = "Secret key to AWS console"
-}
+# variable "access_key" {
+#        description = "Access key to AWS console"
+#}
+# variable "secret_key" {
+#        description = "Secret key to AWS console"
+#}
 
 variable "instance_name" {
         description = "Name of the instance to be created"
@@ -21,7 +21,7 @@ variable "subnet_id" {
 
 variable "ami_id" {
         description = "The AMI to use"
-        default = "ami-830c94e3"
+        default = "ami-02f3f602d23f1659d"
 }
 
 variable "number_of_instances" {
