@@ -14,7 +14,7 @@ resource "aws_instance" "ansible_instance" {
     ami = "${var.ami_id}"
     count = "${var.number_of_instances}"
     instance_type = "${var.instance_type}"
-    #key_name = "${var.ami_key_pair_name}"
+    key_name = aws_key_pair.kp.key_name
   
    
   provisioner "remote-exec" {
@@ -32,24 +32,26 @@ resource "aws_instance" "ansible_instance" {
         user          = "ec2-user"
         #user          = "ubuntu"
        # private_key   = "${file(var.private_key_path)}"
-        private_key =   local_file.ssh_key.content      
+       # private_key =   local_file.ssh_key.content      
+       private_key  = file("~/.ssh/terraform")
         host          = "${self.public_ip}"
     }
   } 
 }
 
-resource "tls_private_key" "pk" {
-  algorithm = "RSA"
-  rsa_bits  = 4096
-}
+#resource "tls_private_key" "pk" {
+#  algorithm = "RSA"
+#  rsa_bits  = 4096
+#}
 
 resource "aws_key_pair" "kp" {
-  key_name   = "myAnsibleKey"   # Create a "myKey" to AWS!!
-  public_key = tls_private_key.pk.public_key_openssh
+  key_name   = "myAnsibleKey1"   # Create a "myKey" to AWS!!
+  #public_key = tls_private_key.pk.public_key_openssh
+  public_key = file("~/.ssh/terraform.pub")
 }
 
-resource "local_file" "ssh_key" {
-  filename = "${aws_key_pair.kp.key_name}.pem"
-  content = tls_private_key.pk.private_key_pem
-  file_permission = "0400" 
- }
+#resource "local_file" "ssh_key" {
+#  filename = "${aws_key_pair.kp.key_name}.pem"
+#  content = tls_private_key.pk.private_key_pem
+#  file_permission = "0400" 
+# }
