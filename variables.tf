@@ -32,3 +32,6 @@ variable "number_of_instances" {
  variable "ami_key_pair_name" {
         default = "ansible_key"
 }
+ variable "private_key_path" { 
+        description = "Path of the key file" 
+ }
