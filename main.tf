@@ -17,7 +17,7 @@ resource "aws_instance" "ansible_instance" {
     #key_name = "${var.ami_key_pair_name}"
   
    
-  provisioner "remote-exec" {
+  provisioner "local-exec" {
     inline = [
     "sudo amazon-linux-extras install ansible2 -y",
     "sudo yum install git -y",
