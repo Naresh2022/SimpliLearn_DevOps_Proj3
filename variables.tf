@@ -1,9 +1,9 @@
-# variable "access_key" {
-#        description = "Access key to AWS console"
-#}
-# variable "secret_key" {
-#        description = "Secret key to AWS console"
-#}
+variable "aws_access_key" {
+        description = "Access key to AWS console"
+}
+ variable "aws_secret_key" {
+       description = "Secret key to AWS console"
+}
 
 variable "instance_name" {
         description = "Name of the instance to be created"
@@ -30,5 +30,5 @@ variable "number_of_instances" {
 }
 
  variable "ami_key_pair_name" {
-        default = "ansible"
+        default = "ansible_key"
 }
