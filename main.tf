@@ -29,8 +29,8 @@ resource "aws_instance" "ansible_instance" {
         # default user for ububtu ami from aws
         # same key as in key_name above
         type           = "ssh" 
-        #user          = "ec2-user"
-        user          = "ubuntu"
+        user          = "ec2-user"
+        #user          = "ubuntu"
        # private_key   = "${file(var.private_key_path)}"
         private_key =   local_file.ssh_key.content      
         host          = "${self.public_ip}"
@@ -44,7 +44,7 @@ resource "tls_private_key" "pk" {
 }
 
 resource "aws_key_pair" "kp" {
-  key_name   = "myAnsible"       # Create a "myKey" to AWS!!
+  key_name   = "myAnsibleKey"   # Create a "myKey" to AWS!!
   public_key = tls_private_key.pk.public_key_openssh
 }
 
