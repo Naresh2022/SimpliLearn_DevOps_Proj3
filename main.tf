@@ -14,7 +14,23 @@ resource "aws_instance" "ansible_instance" {
     ami = "${var.ami_id}"
     count = "${var.number_of_instances}"
     instance_type = "${var.instance_type}"
-    key_name = "${var.ami_key_pair_name}"
+    #key_name = "${var.ami_key_pair_name}"
+  
+  resource "tls_private_key" "pk" {
+  algorithm = "RSA"
+  rsa_bits  = 4096
+}
+
+resource "aws_key_pair" "kp" {
+  key_name   = "myAnsible"       # Create a "myKey" to AWS!!
+  public_key = tls_private_key.pk.public_key_openssh
+}
+
+resource "local_file" "ssh_key" {
+  filename = "${aws_key_pair.kp.key_name}.pem"
+  content = tls_private_key.pk.private_key_pem
+  file_permission = "0400" 
+ }
   
   provisioner "remote-exec" {
     inline = [
@@ -30,7 +46,8 @@ resource "aws_instance" "ansible_instance" {
         type           = "ssh" 
         #user          = "ec2-user"
         user          = "ubuntu"
-        private_key   = "${file(var.private_key_path)}"
+       # private_key   = "${file(var.private_key_path)}"
+        private_key =   local_file.ssh_key.filename      
         host          = "${self.public_ip}"
     }
   } 
