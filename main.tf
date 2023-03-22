@@ -20,14 +20,15 @@ resource "aws_instance" "ansible_instance" {
     inline = [
     "sudo amazon-linux-extras install ansible2 -y",
     "sudo yum install git -y",
-    "git clone https://github.com/devops-school/ansible-hello-world-role /tmp/ans_ws",
-    "ansible-playbook /tmp/ans_ws/site.yaml"
+    "git clone https://github.com/Naresh2022/SimpliLearn_DevOps_Proj3",
+    "ansible-playbook install_jenkins_java_python.yaml"
     ]
   
     connection {
         # default user for ububtu ami from aws
         # same key as in key_name above
         type           = "ssh" 
+        #user          = "ec2-user"
         user          = "ubuntu"
         private_key   = "${file(var.private_key_path)}"
         host          = "${self.public_ip}"
