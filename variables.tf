@@ -1,9 +1,12 @@
-variable "aws_access_key" {
-        description = "Access key to AWS console"
-}
- variable "aws_secret_key" {
-       description = "Secret key to AWS console"
-}
+# Access key and Secret key are need if we are connecting the AWS account outside.
+# In SimpliLearn , we already inside AWS account hence no need access and secret key
+
+#variable "aws_access_key" {
+#        description = "Access key to AWS console"
+#}
+# variable "aws_secret_key" {
+#       description = "Secret key to AWS console"
+#}
 
 variable "instance_name" {
         description = "Name of the instance to be created"
@@ -30,7 +33,7 @@ variable "number_of_instances" {
 }
 
  variable "key_name" {
-        default = "administrator-key-pair"
+        default = "administrator-key-pair2"
 }
  variable "private_key_path" { 
         description = "Path of the key file" 
