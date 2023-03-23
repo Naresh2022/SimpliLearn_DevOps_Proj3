@@ -29,7 +29,7 @@ variable "number_of_instances" {
         default = 1
 }
 
- variable "ami_key_pair_name" {
+ variable "key_name" {
         default = "administrator-key-pair"
 }
  variable "private_key_path" { 
