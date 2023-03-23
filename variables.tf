@@ -21,7 +21,7 @@ variable "instance_type" {
 
 variable "ami_id" {
         description = "The AMI to use"
-        default = "ami-02f3f602d23f1659d"
+        default = "ami-0557a15b87f6559cf"
 }
 
 variable "number_of_instances" {
@@ -30,7 +30,7 @@ variable "number_of_instances" {
 }
 
  variable "ami_key_pair_name" {
-        default = "ansible_key"
+        default = "administrator-key-pair"
 }
  variable "private_key_path" { 
         description = "Path of the key file" 
