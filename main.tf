@@ -33,7 +33,7 @@ resource "aws_instance" "ansible_instance" {
         type           = "ssh" 
         #user          = "ec2-user"
         user          = "ubuntu"
-        private_key   = "${file(var.key_name)}"
+        private_key   = "${file(var.private_key_path)}"
         host          = "${self.public_ip}"
     }
   } 
