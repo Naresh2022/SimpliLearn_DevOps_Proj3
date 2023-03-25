@@ -33,7 +33,7 @@ variable "number_of_instances" {
 }
 
  variable "key_name" {
-        default = "administrator-key-pair2"
+        default = "ansible-key-pair"
 }
  variable "private_key_path" { 
         description = "Path of the key file" 
