@@ -23,7 +23,7 @@ resource "aws_instance" "ansible_instance" {
     inline = [
     "sudo amazon-linux-extras install ansible2 -y",
     "sudo yum install git -y",
-    #"git clone https://github.com/Naresh2022/SimpliLearn_DevOps_Proj3",
+    "git clone https://github.com/Naresh2022/SimpliLearn_DevOps_Proj3",
     "ansible-playbook install_jenkins_java_python.yaml"
     ]
   
@@ -34,7 +34,7 @@ resource "aws_instance" "ansible_instance" {
         #user          = "ec2-user"
         user          = "ubuntu"
         private_key   = "${file(var.key_name)}"
-      host          = "${self.public_ip}"
+        host          = "${self.public_ip}"
     }
   } 
 }
