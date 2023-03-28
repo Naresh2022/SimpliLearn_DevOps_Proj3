@@ -33,8 +33,9 @@ variable "number_of_instances" {
 }
 
  variable "key_name" {
-        default = "ansible-key-pair"
+        default = "ec2-key-pair"
 }
  variable "private_key_path" { 
         description = "Path of the key file" 
+        default =       "/home/cloudshell-user/ec2-key-pair.pem"
  }
