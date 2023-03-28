@@ -39,3 +39,5 @@ variable "number_of_instances" {
         description = "Path of the key file" 
         default =       "/home/cloudshell-user/ec2-key-pair.pem"
  }
+variable "root_password" {
+}
