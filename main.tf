@@ -24,5 +24,4 @@ resource "aws_instance" "ansible_instance" {
     EOF
   
     }
-  } 
-}
+ 
