@@ -36,8 +36,8 @@ resource "aws_instance" "ansible_instance" {
         # same key as in key_name above
         type           = "ssh" 
         #user          = "ec2-user"  #for Amazon AMI default user is ec2-user
-        #user          = "ubuntu"   # for ubuntu is the default user for Ubuntu OS
-        user      = "root"
+        user          = "ubuntu"   # for ubuntu is the default user for Ubuntu OS
+        #user      = "root"
         #password    = var.root_password
         private_key   = "${file(var.private_key_path)}"
         host          = self.public_ip
