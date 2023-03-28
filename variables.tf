@@ -23,8 +23,8 @@ variable "instance_type" {
 #}
 
 variable "ami_id" {
-        description = "The AMI to use"
-        default = "ami-0557a15b87f6559cf"
+        description = "Ubuntu Server 22.04 LTS (HVM), SSD Volume Type , AMI to use"
+        default = "ami-007855ac798b5175e"
 }
 
 variable "number_of_instances" {
