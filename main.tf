@@ -19,7 +19,7 @@ resource "aws_instance" "ansible_instance" {
     instance_type = "${var.instance_type}"
     key_name = "${var.key_name}"
   
-  provision "file" {
+  provisioner "file" {
     source  = "/home/cloudshell-user/SimpliLearn_DevOps_Proj3/"
     destination = "/home/ubuntu/SimpliLearn_DevOps_Proj3"
   }
