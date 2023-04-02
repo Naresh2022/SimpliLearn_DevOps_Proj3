@@ -23,8 +23,8 @@ variable "instance_type" {
 #}
 
 variable "ami_id" {
-        description = "Ubuntu Server 22.04 LTS (HVM), SSD Volume Type , AMI to use"
-        default = "ami-007855ac798b5175e"
+        description = "Amazon Linux 2 AMI (HVM) - Kernel 5.10, SSD Volume Type"
+        default = "ami-04581fbf744a7d11f"
 }
 
 variable "number_of_instances" {
@@ -37,7 +37,5 @@ variable "number_of_instances" {
 }
  variable "private_key_path" { 
         description = "Path of the key file" 
-        default =       "/home/cloudshell-user/ec2-key-pair.pem"
+        default =       "./ec2-key-pair.pem"
  }
-variable "root_password" {
-}
