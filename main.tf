@@ -18,13 +18,19 @@ resource "aws_instance" "ansible_instance" {
     count = "${var.number_of_instances}"
     instance_type = "${var.instance_type}"
     key_name = "${var.key_name}"
+  
+  provision "file" {
+    source  = "/home/cloudshell-user/SimpliLearn_DevOps_Proj3/"
+    destination = "/home/ubuntu/SimpliLearn_DevOps_Proj3"
+  }
+  
     user_data = <<EOF
     sudo apt update
     sudo apt install software-properties-common
     sudo add-apt-repository --yes --update ppa:ansible/ansible
     sudo apt install ansible
     sudo apt install git
-    git clone https://github.com/Naresh2022/SimpliLearn_DevOps_Proj3
+    #git clone https://github.com/Naresh2022/SimpliLearn_DevOps_Proj3
     ansible-playbook install_jenkins_java_python.yaml
     EOF
   
