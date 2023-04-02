@@ -3,7 +3,7 @@ resource "aws_instance" "my_instance" {
     count = "${var.number_of_instances}"
     instance_type = "${var.instance_type}"
     key_name = "${var.key_name}"
-    vpc_security_group_id   =   [aws_security_group.sg_grp.id] #we will create security group sg_grp as well in this script
+    vpc_security_group_ids   =   [aws_security_group.sg_grp.id] # we will create security group sg_grp as well in this script
 
     provisioner "remote-exec" {
            inline   =   [
@@ -26,7 +26,7 @@ resource "aws_instance" "my_instance" {
         private_key =   file("./ec2-key-pair.pem")  # moved key already inti /home.cloudshell-user/SimpliLearn_DevOps_Proj3
     }
     
-    tags {
+    tags = {
         name    =   "Jenkins_Ansible_Python_Server"
     }
 }
@@ -57,7 +57,7 @@ resource "aws_security_group" "sg_grp" {
         cidr_blocks =   ["0.0.0.0/0"]
     }
     
-    tags  {
+    tags = {
         name    = "sg_grp"
     }
 }
