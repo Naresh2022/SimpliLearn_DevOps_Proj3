@@ -15,7 +15,7 @@ resource "aws_instance" "my_instance" {
                "sudo systemctl start jenkins",
                "sudo yum update -y ",
                "sudo amazon-linux-extras install ansible2 -y",
-               "sudo amazon-linux-extras install python3.8",
+               "sudo amazon-linux-extras install python3.8 -y",
            ] 
     }
  
